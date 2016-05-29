@@ -27,6 +27,7 @@
 module.exports = ArrayToStream
 
 var Readable = require('stream').Readable
+var inherits = require('util').inherits
 
 function ArrayToStream(array) {
   if (!( this instanceof ArrayToStream )) {
@@ -44,7 +45,7 @@ function ArrayToStream(array) {
     this._array = array.concat(null)
     Readable.call(this, { objectMode: true }) } }
 
-require('util').inherits(ArrayToStream, Readable)
+inherits(ArrayToStream, Readable)
 
 ArrayToStream.prototype._read = function () {
   var array = this._array
