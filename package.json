@@ -1,7 +1,7 @@
 {
   "name": "array-to-stream",
   "description": "convert an array into an object stream",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
   "dependencies": {
     "readable-stream": "^2.1.5"
