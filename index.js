@@ -26,7 +26,7 @@
 
 module.exports = ArrayToStream
 
-var Readable = require('stream').Readable
+var Readable = require('readable-stream').Readable
 var inherits = require('util').inherits
 
 function ArrayToStream(array) {

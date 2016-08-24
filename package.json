@@ -11,5 +11,8 @@
   "repository": "kemitchell/array-to-stream.js",
   "scripts": {
     "test": "defence README.md | replace-require-self | node"
+  },
+  "dependencies": {
+    "readable-stream": "^2.1.5"
   }
 }
