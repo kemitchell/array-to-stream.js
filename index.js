@@ -29,21 +29,25 @@ module.exports = ArrayToStream
 var Readable = require('readable-stream').Readable
 var inherits = require('util').inherits
 
-function ArrayToStream(array) {
-  if (!( this instanceof ArrayToStream )) {
-    return new ArrayToStream(array) }
-  else {
+function ArrayToStream (array) {
+  if (!(this instanceof ArrayToStream)) {
+    return new ArrayToStream(array)
+  } else {
     // Check for null in the array of objects.
-    var hasNull = array.some(function(element) {
-      return ( element === null ) })
+    var hasNull = array.some(function (element) {
+      return element === null
+    })
     if (hasNull) {
-      throw new Error('Object streams cannot emit `null`') }
+      throw new Error('Object streams cannot emit `null`')
+    }
     // Create a shallow copy of the array with `null` at the end.
     // This way:
     // 1. `_read`'s calls to `.unshift()` don't mutate the argument.
     // 2. `_read` will push `null`, the no-more-data value to end.
     this._array = array.concat(null)
-    Readable.call(this, { objectMode: true }) } }
+    Readable.call(this, {objectMode: true})
+  }
+}
 
 inherits(ArrayToStream, Readable)
 
@@ -51,4 +55,7 @@ ArrayToStream.prototype._read = function () {
   var array = this._array
   while (array.length !== 0) {
     if (!this.push(array.shift())) {
-      break } } }
+      break
+    }
+  }
+}
