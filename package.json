@@ -3,6 +3,9 @@
   "description": "convert an array into an object stream",
   "version": "1.0.0",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
+  "dependencies": {
+    "readable-stream": "^2.1.5"
+  },
   "devDependencies": {
     "defence-cli": "^2.0.0",
     "replace-require-self": "^1.1.1",
@@ -11,10 +14,7 @@
   "license": "MIT",
   "repository": "kemitchell/array-to-stream.js",
   "scripts": {
-    "test": "defence README.md | replace-require-self | node",
-    "lint": "standard"
-  },
-  "dependencies": {
-    "readable-stream": "^2.1.5"
+    "lint": "standard",
+    "test": "defence README.md | replace-require-self | node"
   }
 }
