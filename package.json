@@ -11,6 +11,9 @@
     "replace-require-self": "^1.1.1",
     "standard": "^8.0.0-beta.5"
   },
+  "files": [
+    "index.js"
+  ],
   "license": "MIT",
   "repository": "kemitchell/array-to-stream.js",
   "scripts": {
