@@ -2,19 +2,18 @@
 var ArrayToStream = require('array-to-stream')
 var assert = require('assert')
 
-var ended = false
-var seen = 0
-
 var array = [1, false, {x: '10'}]
+
+var emitted = []
+var ended = false
 
 new ArrayToStream(array)
   .on('data', function (object) {
-    seen++
-    assert.notEqual(array.indexOf(object), -1)
+    emitted.push(object)
   })
   .on('end', function () {
+    assert.deepEqual(emitted, array)
     ended = true
-    assert.equal(seen, array.length)
   })
 
 process.on('exit', function () {
